@@ -6,7 +6,7 @@ from collections import Counter
 suits = ['♥', '♦', '♣', '♠']
 values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'V', 'D', 'R', 'A']
 deck = [f'{value}{suit}' for value in values for suit in suits]
-value_ranking = {str(i): i for i in range(2, 11)}  # Convertir '2'-'10' en entiers
+value_ranking = {str(i): i for i in range(2, 11)} # Convertir '2'-'10' en entiers
 value_ranking.update({'V': 11, 'D': 12, 'R': 13, 'A': 14})
 
 
@@ -192,6 +192,7 @@ def determine_winner(players, table_cards):
     best_hand = (-1, -1)
 
     for player in players:
+        print(player.name,"a les cartes", player.cards)
         if player.folded or player.chips == 0:
             continue
         player_hand = evaluate_hand(player, table_cards)
