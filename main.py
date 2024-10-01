@@ -132,6 +132,7 @@ def betting_round(players, minimum_bet, table_cards, phase):
 
         # Ajoute la mise au pot
         pot += player.current_bet
+        print(pot)
         # Nettoyer le terminal après chaque tour (joueur ou bot)
         os.system('clear' if os.name == 'posix' else 'cls')
 
@@ -223,19 +224,20 @@ def poker_game():
         # Tour pré-flop
         print("### Pre-Flop ###")
         display_players(players)
-        pot += betting_round(players, minimum_bet=10, table_cards=table_cards, phase='pre-flop')[0]
+        betting_round(players, minimum_bet=10, table_cards=table_cards, phase='pre-flop')[0]
 
         # Flop
         table_cards += [deck.pop(), deck.pop(), deck.pop()]
         print("\n### Flop ###")
         display_table(table_cards)
-        pot += betting_round(players, minimum_bet=20, table_cards=table_cards, phase='flop')[0]
+        betting_round(players, minimum_bet=20, table_cards=table_cards, phase='flop')[0]
 
         # Turn
         table_cards.append(deck.pop())
         print("\n### Turn ###")
         display_table(table_cards)
-        pot += betting_round(players, minimum_bet=20, table_cards=table_cards, phase='turn')[0]
+        print("le pot est de ", pot)
+        betting_round(players, minimum_bet=20, table_cards=table_cards, phase='turn')[0]
 
         # River
         table_cards.append(deck.pop())
