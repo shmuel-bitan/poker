@@ -193,7 +193,7 @@ def determine_winner(players, table_cards):
 
     for player in players:
         print(player.name,"a les cartes", player.cards)
-        if player.folded or player.chips == 0:
+        if player.folded:
             continue
         player_hand = evaluate_hand(player, table_cards)
         if player_hand > best_hand:
