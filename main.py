@@ -271,3 +271,4 @@ def poker_game():
 # Lancer le jeu
 if __name__ == "__main__":
     poker_game()
+    #ajouter correction du calcul de la main gagnate
